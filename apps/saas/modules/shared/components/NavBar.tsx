@@ -409,7 +409,7 @@ export function NavBar() {
 									</SheetContent>
 								</Sheet>
 								<Link href="/" className="block shrink-0">
-									<Logo withLabel={false} />
+									<Logo withLabel={!isCollapsedEffective} />
 								</Link>
 							</div>
 
