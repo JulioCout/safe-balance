@@ -52,7 +52,7 @@
 			"new": "Nuevo:",
 			"featureBadge": "Increíble función de tu SaaS",
 			"title": "Tu SaaS revolucionario construido con Next.js",
-			"subtitle": "Esta es una aplicación de demostración construida con supastarter. Te ahorrará mucho tiempo y esfuerzo al construir tu próximo SaaS.",
+			"subtitle": "Esta es una aplicación de demostración. Te ahorrará mucho tiempo y esfuerzo al construir tu próximo SaaS.",
 			"getStarted": "Comenzar",
 			"documentation": "Documentación",
 			"imageAlt": "Nuestra aplicación",
@@ -110,7 +110,7 @@
 			}
 		},
 		"submit": "Suscribirse",
-		"subtitle": "Sé de los primeros en obtener acceso a supastarter.nextjs.",
+		"subtitle": "Sé de los primeros en obtener acceso anticipado.",
 		"title": "Obtén acceso anticipado"
 	},
 	"notFound": {
@@ -126,7 +126,7 @@
 			"pricing": "Precios",
 			"privacyPolicy": "Política de privacidad",
 			"termsAndConditions": "Términos y condiciones",
-			"builtWith": "Construido con supastarter"
+			"builtWith": ""
 		},
 		"menu": {
 			"blog": "Blog",

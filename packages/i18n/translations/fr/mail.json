@@ -15,12 +15,12 @@
 		"subject": "Réinitialisez votre mot de passe"
 	},
 	"magicLink": {
-		"body": "Bonjour,\nvous avez demandé un e-mail de connexion de supastarter.\n\nCliquez sur le lien ci-dessous pour vous connecter.",
+		"body": "Bonjour,\nvous avez demandé un e-mail de connexion.\n\nCliquez sur le lien ci-dessous pour vous connecter.",
 		"login": "Connexion",
-		"subject": "Connexion à supastarter"
+		"subject": "Connexion à votre compte"
 	},
 	"newUser": {
-		"body": "Bonjour,\nmerci de vous être inscrit sur supastarter.\n\nPour commencer à utiliser notre application, veuillez confirmer votre adresse e-mail en cliquant sur le lien ci-dessous.",
+		"body": "Bonjour,\nmerci de vous être inscrit.\n\nPour commencer à utiliser notre application, veuillez confirmer votre adresse e-mail en cliquant sur le lien ci-dessous.",
 		"confirmEmail": "Confirmer l'e-mail",
 		"subject": "Confirmez votre e-mail"
 	},

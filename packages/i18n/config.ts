@@ -2,6 +2,10 @@ import type { I18nConfig } from "./types";
 
 export const config = {
 	locales: {
+		pt: {
+			label: "Português",
+			currency: "BRL",
+		},
 		en: {
 			label: "English",
 			currency: "USD",
@@ -19,8 +23,8 @@ export const config = {
 			currency: "USD",
 		},
 	},
-	defaultLocale: "en",
-	defaultCurrency: "USD",
+	defaultLocale: "pt",
+	defaultCurrency: "BRL",
 	localeCookieName: "NEXT_LOCALE",
 } as const satisfies I18nConfig;
 

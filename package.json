@@ -1,5 +1,5 @@
 {
-	"name": "supastarter-nextjs",
+	"name": "safe-balance",
 	"private": true,
 	"scripts": {
 		"build": "dotenv -c -- turbo build",
@@ -22,7 +22,7 @@
 		"dotenv-cli": "catalog:",
 		"oxfmt": "catalog:",
 		"oxlint": "catalog:",
-		"turbo": "^2.9.10",
+		"turbo": "^2.9.12",
 		"typescript": "catalog:"
 	},
 	"engines": {

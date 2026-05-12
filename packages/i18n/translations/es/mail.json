@@ -15,12 +15,12 @@
 		"subject": "Restablece tu contraseña"
 	},
 	"magicLink": {
-		"body": "Hola,\nsolicitaste un correo de inicio de sesión de supastarter.\n\nHaz clic en el enlace de abajo para iniciar sesión.",
+		"body": "Hola,\nsolicitaste un correo de inicio de sesión.\n\nHaz clic en el enlace de abajo para iniciar sesión.",
 		"login": "Iniciar sesión",
-		"subject": "Iniciar sesión en supastarter"
+		"subject": "Iniciar sesión en tu cuenta"
 	},
 	"newUser": {
-		"body": "Hola,\ngracias por registrarte en supastarter.\n\nPara comenzar a usar nuestra aplicación, por favor confirma tu dirección de correo electrónico haciendo clic en el enlace de abajo.",
+		"body": "Hola,\ngracias por registrarte.\n\nPara comenzar a usar nuestra aplicación, por favor confirma tu dirección de correo electrónico haciendo clic en el enlace de abajo.",
 		"confirmEmail": "Confirmar correo",
 		"subject": "Confirma tu correo electrónico"
 	},

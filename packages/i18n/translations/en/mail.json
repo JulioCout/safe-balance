@@ -15,12 +15,12 @@
 		"subject": "Reset your password"
 	},
 	"magicLink": {
-		"body": "Hey,\nyou requested a login email from supastarter.\n\nClick the link below to login.",
+		"body": "Hey,\nyou requested a login email.\n\nClick the link below to login.",
 		"login": "Login",
-		"subject": "Login to supastarter"
+		"subject": "Login to your account"
 	},
 	"newUser": {
-		"body": "Hey,\nthanks for signing up for supastarter.\n\nTo start using our app, please confirm your email address by clicking the link below.",
+		"body": "Hey,\nthanks for signing up.\n\nTo start using our app, please confirm your email address by clicking the link below.",
 		"confirmEmail": "Confirm email",
 		"subject": "Confirm your email"
 	},

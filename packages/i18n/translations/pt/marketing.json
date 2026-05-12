@@ -1,0 +1,154 @@
+{
+	"blog": {
+		"description": "Leia as últimas novidades da nossa empresa",
+		"title": "Nosso incrível blog",
+		"back": "Voltar ao blog"
+	},
+	"changelog": {
+		"description": "Fique por dentro das últimas mudanças no nosso produto.",
+		"title": "Changelog"
+	},
+	"contact": {
+		"description": "Estamos aqui para ajudar você. Use o formulário abaixo para entrar em contato conosco.",
+		"form": {
+			"email": "E-mail",
+			"message": "Mensagem",
+			"name": "Nome",
+			"notifications": {
+				"error": "Desculpe, não conseguimos enviar sua mensagem. Por favor, tente novamente mais tarde.",
+				"success": "Sua mensagem foi enviada com sucesso. Entraremos em contato o mais breve possível."
+			},
+			"submit": "Enviar mensagem"
+		},
+		"title": "Fale conosco"
+	},
+	"documentation": {
+		"title": "Documentação"
+	},
+	"faq": {
+		"description": "Tem alguma dúvida? Estamos aqui para ajudar.",
+		"title": "Perguntas frequentes",
+		"items": {
+			"refundPolicy": {
+				"question": "Qual é a política de reembolso?",
+				"answer": "Oferecemos garantia de reembolso de 30 dias caso você não esteja satisfeito com nosso produto."
+			},
+			"cancelSubscription": {
+				"question": "Como cancelo minha assinatura?",
+				"answer": "Você pode cancelar sua assinatura acessando a página de faturamento."
+			},
+			"changePlan": {
+				"question": "Posso mudar de plano?",
+				"answer": "Sim, você pode mudar de plano a qualquer momento acessando a página de faturamento."
+			},
+			"freeTrial": {
+				"question": "Vocês oferecem teste gratuito?",
+				"answer": "Sim, oferecemos 14 dias de teste gratuito."
+			}
+		}
+	},
+	"home": {
+		"hero": {
+			"new": "Novidade:",
+			"featureBadge": "Recurso incrível do seu SaaS",
+			"title": "Seu SaaS revolucionário criado com Next.js",
+			"subtitle": "Este é um aplicativo de demonstração. Ele vai economizar muito tempo e esforço na construção do seu próximo SaaS.",
+			"getStarted": "Começar",
+			"documentation": "Documentação",
+			"imageAlt": "Nosso aplicativo",
+			"builtWith": "Criado e lançado com estas incríveis ferramentas"
+		},
+		"features": {
+			"badge": "Recursos incríveis",
+			"title": "Recursos que seus clientes vão adorar",
+			"description": "Nesta seção você pode apresentar todos os recursos que seu SaaS oferece e como eles beneficiam seus clientes.",
+			"feature1": {
+				"title": "Recurso 1",
+				"subtitle": "Faça mais com nosso incrível SaaS.",
+				"description": "Este é um recurso brilhante. E abaixo você pode ver alguns motivos. Este é basicamente apenas um texto de exemplo.",
+				"benefit1": {
+					"title": "Benefício 1",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Este é basicamente apenas um texto de exemplo."
+				},
+				"benefit2": {
+					"title": "Benefício 2",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Este é basicamente apenas um texto de exemplo."
+				},
+				"benefit3": {
+					"title": "Benefício 3",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Este é basicamente apenas um texto de exemplo."
+				}
+			},
+			"feature2": {
+				"title": "Recurso 2",
+				"subtitle": "Seu SaaS também pode fazer isso.",
+				"description": "Outro texto de exemplo para outro recurso.",
+				"benefit1": {
+					"title": "Benefício 1",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Este é basicamente apenas um texto de exemplo."
+				},
+				"benefit2": {
+					"title": "Benefício 2",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Este é basicamente apenas um texto de exemplo."
+				},
+				"benefit3": {
+					"title": "Benefício 3",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Este é basicamente apenas um texto de exemplo."
+				}
+			}
+		}
+	},
+	"newsletter": {
+		"email": "E-mail",
+		"hints": {
+			"error": {
+				"message": "Não foi possível assinar a newsletter. Por favor, tente novamente mais tarde."
+			},
+			"success": {
+				"message": "Obrigado por assinar nossa newsletter. Vamos mantê-lo informado.",
+				"title": "Inscrito"
+			}
+		},
+		"submit": "Assinar",
+		"subtitle": "Seja um dos primeiros a ter acesso.",
+		"title": "Acesso antecipado"
+	},
+	"notFound": {
+		"code": "404",
+		"title": "Página não encontrada",
+		"goToDashboard": "Ir para o painel",
+		"goToHomepage": "Ir para a página inicial"
+	},
+	"common": {
+		"footer": {
+			"blog": "Blog",
+			"features": "Recursos",
+			"pricing": "Preços",
+			"privacyPolicy": "Política de privacidade",
+			"termsAndConditions": "Termos e condições",
+			"builtWith": ""
+		},
+		"menu": {
+			"blog": "Blog",
+			"changelog": "Changelog",
+			"contact": "Contato",
+			"dashboard": "Painel",
+			"docs": "Docs",
+			"faq": "FAQ",
+			"login": "Entrar",
+			"pricing": "Preços"
+		},
+		"aria": {
+			"menu": "Menu",
+			"language": "Idioma"
+		},
+		"tableOfContents": {
+			"title": "Nesta página"
+		},
+		"colorMode": {
+			"system": "Sistema",
+			"light": "Claro",
+			"dark": "Escuro"
+		}
+	}
+}

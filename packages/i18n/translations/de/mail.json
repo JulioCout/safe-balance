@@ -15,12 +15,12 @@
 		"subject": "Passwort zurücksetzen"
 	},
 	"magicLink": {
-		"body": "Hey,\ndu hast eine Anmelde-E-Mail von supastarter angefordert.\n\nKlicke auf den unten stehenden Link, um dich anzumelden.",
+		"body": "Hey,\ndu hast eine Anmelde-E-Mail angefordert.\n\nKlicke auf den unten stehenden Link, um dich anzumelden.",
 		"login": "Login",
-		"subject": "Login bei supastarter"
+		"subject": "Login bei deinem Konto"
 	},
 	"newUser": {
-		"body": "Hallo,\n\nVielen Dank, dass du dich bei Supastarter angemeldet hast.\n\n\nUm mit der Nutzung unserer App zu beginnen, bestätige bitte deine E-Mail-Adresse, indem du auf den untenstehenden Link klickst.",
+		"body": "Hallo,\n\nVielen Dank, dass du dich angemeldet hast.\n\n\nUm mit der Nutzung unserer App zu beginnen, bestätige bitte deine E-Mail-Adresse, indem du auf den untenstehenden Link klickst.",
 		"confirmEmail": "E-Mail bestätigen",
 		"subject": "E-Mail bestätigen"
 	},
