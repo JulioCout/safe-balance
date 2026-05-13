@@ -74,6 +74,7 @@
 			"accountSettings": "Account settings",
 			"admin": "Admin",
 			"aiChatbot": "AI Chatbot",
+			"aircraftProfiles": "My Aircraft",
 			"navigationTitle": "Menu",
 			"openNavigation": "Open navigation",
 			"organizationSettings": "Organization settings",
@@ -632,6 +633,11 @@
 			"light": "Light",
 			"dark": "Dark"
 		},
+		"measurementSystem": {
+			"metric": "Metric",
+			"imperial": "Imperial",
+			"tooltip": "Measurement system"
+		},
 		"passwordCriteria": {
 			"minLength": "Min. 8 characters",
 			"upperAndLowercase": "Upper & lowercase",
@@ -643,5 +649,97 @@
 		"title": "Processing your purchase",
 		"description": "Please wait while we confirm your payment.",
 		"loading": "Confirming your purchase, please wait..."
+	},
+	"aircraftProfiles": {
+		"title": "My Aircraft",
+		"subtitle": "Manage your aircraft profiles for weight and balance calculations.",
+		"searchPlaceholder": "Search aircraft by name or model...",
+		"newAircraft": "New Aircraft",
+		"delete": "Delete",
+		"backToList": "Back to list",
+		"notFound": "Aircraft profile not found.",
+		"empty": {
+			"title": "No aircraft registered",
+			"description": "Start by adding your first aircraft. You can start from scratch or use a predefined template."
+		},
+		"newDialog": {
+			"title": "New Aircraft",
+			"description": "Choose how you want to create your aircraft profile.",
+			"blank": "Start from scratch",
+			"blankDescription": "Create an empty profile and fill in all data manually.",
+			"templateDescription": "{stations} stations · {weight} lb empty weight",
+			"nameTitle": "Name your aircraft",
+			"nameDescription": "Choose a name to identify this profile.",
+			"basedOn": "Based on template:",
+			"back": "Back",
+			"create": "Create aircraft"
+		},
+		"form": {
+			"basicInfo": "Basic information",
+			"profileName": "Profile name",
+			"profileNamePlaceholder": "E.g.: Cessna 172 - N12345",
+			"aircraftModel": "Aircraft model",
+			"registration": "Registration",
+			"basicEmptyWeight": "Basic empty weight (BEW)",
+			"basicEmptyCG": "Empty weight arm",
+			"stations": "Stations",
+			"station": "station",
+			"stationsCount": "stations",
+			"noStations": "No stations added. Click \"Add Station\" to get started.",
+			"addStation": "Add Station",
+			"removeStation": "Remove station",
+			"stationType": "Station Type",
+			"arm": "Arm",
+			"maxWeight": "Max weight",
+			"weight": "Weight",
+			"seatCount": "Seats",
+			"fuelCapacity": "Capacity",
+			"weightPerGallon": "Weight per gallon",
+			"forwardCGLimits": "Forward CG Limits",
+			"aftCGLimits": "Aft CG Limits",
+			"addForwardLimit": "Add forward limit",
+			"addAftLimit": "Add aft limit",
+			"save": "Save",
+			"unsavedChanges": "You have unsaved changes."
+		},
+		"stationTypes": {
+			"SINGLE_SEAT": "Single seat",
+			"ROW_OF_SEATS": "Row of seats",
+			"CARGO": "Cargo compartment",
+			"FUEL": "Fuel tank",
+			"AIRCRAFT_ITEMS": "Aircraft items"
+		},
+		"deleteConfirm": {
+			"title": "Delete aircraft",
+			"description": "Are you sure you want to delete this aircraft profile? This action cannot be undone.",
+			"confirm": "Delete"
+		},
+		"notifications": {
+			"created": "Aircraft created successfully!",
+			"createError": "Could not create aircraft. Please try again.",
+			"creating": "Creating...",
+			"saved": "Profile saved successfully!",
+			"saveError": "Could not save profile. Please try again.",
+			"saving": "Saving...",
+			"deleted": "Aircraft deleted successfully!",
+			"deleteError": "Could not delete aircraft. Please try again."
+		}
+	},
+	"suggestions": {
+		"navLabel": "Send suggestion",
+		"title": "Suggestions",
+		"description": "Have an idea or suggestion? Share it with us!",
+		"subject": "Subject",
+		"subjectPlaceholder": "E.g.: Improvement on the aircraft screen",
+		"message": "Suggestion",
+		"messagePlaceholder": "Describe your suggestion in detail...",
+		"send": "Send",
+		"sending": "Sending...",
+		"close": "Close",
+		"successTitle": "Suggestion sent!",
+		"successMessage": "Thank you for your suggestion. It will be reviewed and help us serve you better every day.",
+		"notifications": {
+			"error": "Could not send suggestion. Please try again."
+		}
 	}
 }

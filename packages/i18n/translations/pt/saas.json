@@ -74,6 +74,7 @@
 			"accountSettings": "Configurações da conta",
 			"admin": "Admin",
 			"aiChatbot": "Chatbot de IA",
+			"aircraftProfiles": "Minhas Aeronaves",
 			"navigationTitle": "Menu",
 			"openNavigation": "Abrir navegação",
 			"organizationSettings": "Configurações da organização",
@@ -632,6 +633,11 @@
 			"light": "Claro",
 			"dark": "Escuro"
 		},
+		"measurementSystem": {
+			"metric": "Métrico",
+			"imperial": "Imperial",
+			"tooltip": "Sistema de medidas"
+		},
 		"passwordCriteria": {
 			"minLength": "Mín. 8 caracteres",
 			"upperAndLowercase": "Maiúsculas e minúsculas",
@@ -643,5 +649,97 @@
 		"title": "Processando sua compra",
 		"description": "Por favor, aguarde enquanto confirmamos seu pagamento.",
 		"loading": "Confirmando sua compra, por favor aguarde..."
+	},
+	"aircraftProfiles": {
+		"title": "Minhas Aeronaves",
+		"subtitle": "Gerencie os perfis das suas aeronaves para cálculos de peso e balanço.",
+		"searchPlaceholder": "Buscar aeronave por nome ou modelo...",
+		"newAircraft": "Nova Aeronave",
+		"delete": "Excluir",
+		"backToList": "Voltar para a lista",
+		"notFound": "Perfil de aeronave não encontrado.",
+		"empty": {
+			"title": "Nenhuma aeronave cadastrada",
+			"description": "Comece adicionando sua primeira aeronave. Você pode começar em branco ou usar um modelo predefinido."
+		},
+		"newDialog": {
+			"title": "Nova Aeronave",
+			"description": "Escolha como deseja criar o perfil da sua aeronave.",
+			"blank": "Começar em branco",
+			"blankDescription": "Crie um perfil vazio e preencha todos os dados manualmente.",
+			"templateDescription": "{stations} estações · {weight} lb peso vazio",
+			"nameTitle": "Nomear aeronave",
+			"nameDescription": "Escolha um nome para identificar este perfil.",
+			"basedOn": "Baseado no modelo:",
+			"back": "Voltar",
+			"create": "Criar aeronave"
+		},
+		"form": {
+			"basicInfo": "Dados básicos",
+			"profileName": "Nome do perfil",
+			"profileNamePlaceholder": "Ex: Cessna 172 - PT-ABC",
+			"aircraftModel": "Modelo da aeronave",
+			"registration": "Matrícula",
+			"basicEmptyWeight": "Peso vazio (BEW)",
+			"basicEmptyCG": "Braço do peso vazio",
+			"stations": "Estações",
+			"station": "estação",
+			"stationsCount": "estações",
+			"noStations": "Nenhuma estação adicionada. Clique em \"Adicionar Estação\" para começar.",
+			"addStation": "Adicionar Estação",
+			"removeStation": "Remover estação",
+			"stationType": "Tipo de Estação",
+			"arm": "Braço",
+			"maxWeight": "Peso máximo",
+			"weight": "Peso",
+			"seatCount": "Assentos",
+			"fuelCapacity": "Capacidade",
+			"weightPerGallon": "Peso por galão",
+			"forwardCGLimits": "Limites de CG Dianteiro",
+			"aftCGLimits": "Limites de CG Traseiro",
+			"addForwardLimit": "Adicionar limite dianteiro",
+			"addAftLimit": "Adicionar limite traseiro",
+			"save": "Salvar",
+			"unsavedChanges": "Você tem alterações não salvas."
+		},
+		"stationTypes": {
+			"SINGLE_SEAT": "Assento individual",
+			"ROW_OF_SEATS": "Fileira de assentos",
+			"CARGO": "Compartimento de carga",
+			"FUEL": "Tanque de combustível",
+			"AIRCRAFT_ITEMS": "Itens da aeronave"
+		},
+		"deleteConfirm": {
+			"title": "Excluir aeronave",
+			"description": "Tem certeza de que deseja excluir este perfil de aeronave? Esta ação não pode ser desfeita.",
+			"confirm": "Excluir"
+		},
+		"notifications": {
+			"created": "Aeronave criada com sucesso!",
+			"createError": "Não foi possível criar a aeronave. Tente novamente.",
+			"creating": "Criando...",
+			"saved": "Perfil salvo com sucesso!",
+			"saveError": "Não foi possível salvar o perfil. Tente novamente.",
+			"saving": "Salvando...",
+			"deleted": "Aeronave excluída com sucesso!",
+			"deleteError": "Não foi possível excluir a aeronave. Tente novamente."
+		}
+	},
+	"suggestions": {
+		"navLabel": "Enviar sugestão",
+		"title": "Sugestões",
+		"description": "Tem uma ideia ou sugestão? Compartilhe conosco!",
+		"subject": "Assunto",
+		"subjectPlaceholder": "Ex: Melhoria na tela de aeronaves",
+		"message": "Sugestão",
+		"messagePlaceholder": "Descreva sua sugestão em detalhes...",
+		"send": "Enviar",
+		"sending": "Enviando...",
+		"close": "Fechar",
+		"successTitle": "Sugestão enviada!",
+		"successMessage": "Agradecemos sua sugestão. Ela será avaliada e nos ajudará a atendê-lo cada vez melhor.",
+		"notifications": {
+			"error": "Não foi possível enviar a sugestão. Tente novamente."
+		}
 	}
 }

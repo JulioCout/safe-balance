@@ -74,6 +74,7 @@
 			"accountSettings": "Kontoeinstellungen",
 			"admin": "Administration",
 			"aiChatbot": "AI Chatbot",
+			"aircraftProfiles": "Meine Flugzeuge",
 			"navigationTitle": "Menü",
 			"openNavigation": "Navigation öffnen",
 			"organizationSettings": "Organisationseinstellungen",
@@ -629,6 +630,11 @@
 			"continue": "Weiter",
 			"verify": "Überprüfen Sie"
 		},
+		"measurementSystem": {
+			"metric": "Metrisch",
+			"imperial": "Imperial",
+			"tooltip": "Maßsystem"
+		},
 		"passwordCriteria": {
 			"minLength": "Min. 8 Zeichen",
 			"upperAndLowercase": "Groß- & Kleinbuchstaben",
@@ -640,5 +646,97 @@
 		"title": "Kauf wird verarbeitet",
 		"description": "Bitte warten Sie, während wir Ihre Zahlung bestätigen.",
 		"loading": "Ihr Kauf wird bestätigt, bitte warten..."
+	},
+	"aircraftProfiles": {
+		"title": "Meine Flugzeuge",
+		"subtitle": "Verwalte deine Flugzeugprofile für Gewichts- und Schwerpunktberechnungen.",
+		"searchPlaceholder": "Flugzeug nach Name oder Modell suchen...",
+		"newAircraft": "Neues Flugzeug",
+		"delete": "Löschen",
+		"backToList": "Zurück zur Liste",
+		"notFound": "Flugzeugprofil nicht gefunden.",
+		"empty": {
+			"title": "Keine Flugzeuge registriert",
+			"description": "Füge dein erstes Flugzeug hinzu. Du kannst von Grund auf beginnen oder eine vorgefertigte Vorlage verwenden."
+		},
+		"newDialog": {
+			"title": "Neues Flugzeug",
+			"description": "Wähle, wie du das Profil deines Flugzeugs erstellen möchtest.",
+			"blank": "Von Grund auf beginnen",
+			"blankDescription": "Erstelle ein leeres Profil und fülle alle Daten manuell aus.",
+			"templateDescription": "{stations} Stationen · {weight} lb Leergewicht",
+			"nameTitle": "Flugzeug benennen",
+			"nameDescription": "Wähle einen Namen zur Identifizierung dieses Profils.",
+			"basedOn": "Basierend auf Vorlage:",
+			"back": "Zurück",
+			"create": "Flugzeug erstellen"
+		},
+		"form": {
+			"basicInfo": "Grundlegende Informationen",
+			"profileName": "Profilname",
+			"profileNamePlaceholder": "z. B.: Cessna 172 - D-EABC",
+			"aircraftModel": "Flugzeugmodell",
+			"registration": "Kennzeichen",
+			"basicEmptyWeight": "Leermasse (BEW)",
+			"basicEmptyCG": "Schwerpunktarm der Leermasse",
+			"stations": "Stationen",
+			"station": "Station",
+			"stationsCount": "Stationen",
+			"noStations": "Keine Stationen hinzugefügt. Klicke auf \"Station hinzufügen\", um zu beginnen.",
+			"addStation": "Station hinzufügen",
+			"removeStation": "Station entfernen",
+			"stationType": "Stationstyp",
+			"arm": "Arm",
+			"maxWeight": "Maximalgewicht",
+			"weight": "Gewicht",
+			"seatCount": "Sitzplätze",
+			"fuelCapacity": "Kapazität",
+			"weightPerGallon": "Gewicht pro Gallone",
+			"forwardCGLimits": "Vordere Schwerpunktgrenzen",
+			"aftCGLimits": "Hintere Schwerpunktgrenzen",
+			"addForwardLimit": "Vordere Grenze hinzufügen",
+			"addAftLimit": "Hintere Grenze hinzufügen",
+			"save": "Speichern",
+			"unsavedChanges": "Du hast nicht gespeicherte Änderungen."
+		},
+		"stationTypes": {
+			"SINGLE_SEAT": "Einzelsitz",
+			"ROW_OF_SEATS": "Sitzreihe",
+			"CARGO": "Frachtabteil",
+			"FUEL": "Kraftstofftank",
+			"AIRCRAFT_ITEMS": "Flugzeugausrüstung"
+		},
+		"deleteConfirm": {
+			"title": "Flugzeug löschen",
+			"description": "Bist du sicher, dass du dieses Flugzeugprofil löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden.",
+			"confirm": "Löschen"
+		},
+		"notifications": {
+			"created": "Flugzeug erfolgreich erstellt!",
+			"createError": "Flugzeug konnte nicht erstellt werden. Bitte versuche es erneut.",
+			"creating": "Wird erstellt...",
+			"saved": "Profil erfolgreich gespeichert!",
+			"saveError": "Profil konnte nicht gespeichert werden. Bitte versuche es erneut.",
+			"saving": "Wird gespeichert...",
+			"deleted": "Flugzeug erfolgreich gelöscht!",
+			"deleteError": "Flugzeug konnte nicht gelöscht werden. Bitte versuche es erneut."
+		}
+	},
+	"suggestions": {
+		"navLabel": "Vorschlag senden",
+		"title": "Vorschläge",
+		"description": "Haben Sie eine Idee oder einen Vorschlag? Teilen Sie ihn mit uns!",
+		"subject": "Betreff",
+		"subjectPlaceholder": "z. B.: Verbesserung der Flugzeugansicht",
+		"message": "Vorschlag",
+		"messagePlaceholder": "Beschreiben Sie Ihren Vorschlag im Detail...",
+		"send": "Senden",
+		"sending": "Wird gesendet...",
+		"close": "Schließen",
+		"successTitle": "Vorschlag gesendet!",
+		"successMessage": "Vielen Dank für Ihren Vorschlag. Er wird geprüft und hilft uns, Sie immer besser zu betreuen.",
+		"notifications": {
+			"error": "Vorschlag konnte nicht gesendet werden. Bitte versuche es erneut."
+		}
 	}
 }

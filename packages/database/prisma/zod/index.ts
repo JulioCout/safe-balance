@@ -82,6 +82,12 @@ export const UserNotificationPreferenceScalarFieldEnumSchema = z.enum(['id', 'us
 
 export type UserNotificationPreferenceScalarFieldEnum = z.infer<typeof UserNotificationPreferenceScalarFieldEnumSchema>;
 
+// File: AircraftProfileScalarFieldEnum.schema.ts
+
+export const AircraftProfileScalarFieldEnumSchema = z.enum(['id', 'userId', 'name', 'model', 'data', 'createdAt', 'updatedAt'])
+
+export type AircraftProfileScalarFieldEnum = z.infer<typeof AircraftProfileScalarFieldEnumSchema>;
+
 // File: SortOrder.schema.ts
 
 export const SortOrderSchema = z.enum(['asc', 'desc'])
@@ -329,4 +335,19 @@ export const UserNotificationPreferenceSchema = z.object({
 });
 
 export type UserNotificationPreferenceType = z.infer<typeof UserNotificationPreferenceSchema>;
+
+
+// File: AircraftProfile.schema.ts
+
+export const AircraftProfileSchema = z.object({
+  id: z.string(),
+  userId: z.string(),
+  name: z.string(),
+  model: z.string(),
+  data: z.unknown().refine((val) => { const getDepth = (obj: unknown, depth: number = 0): number => { if (depth > 10) return depth; if (obj === null || typeof obj !== 'object') return depth; const values = Object.values(obj as Record<string, unknown>); if (values.length === 0) return depth; return Math.max(...values.map(v => getDepth(v, depth + 1))); }; return getDepth(val) <= 10; }, "JSON nesting depth exceeds maximum of 10"),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+});
+
+export type AircraftProfileType = z.infer<typeof AircraftProfileSchema>;
 

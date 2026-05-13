@@ -74,6 +74,7 @@
 			"accountSettings": "Configuración de cuenta",
 			"admin": "Admin",
 			"aiChatbot": "Chatbot IA",
+			"aircraftProfiles": "Mis aeronaves",
 			"navigationTitle": "Menú",
 			"openNavigation": "Abrir navegación",
 			"organizationSettings": "Configuración de organización",
@@ -632,6 +633,11 @@
 			"light": "Claro",
 			"dark": "Oscuro"
 		},
+		"measurementSystem": {
+			"metric": "Métrico",
+			"imperial": "Imperial",
+			"tooltip": "Sistema de medidas"
+		},
 		"passwordCriteria": {
 			"minLength": "Mín. 8 caracteres",
 			"upperAndLowercase": "Mayúsculas y minúsculas",
@@ -643,5 +649,97 @@
 		"title": "Procesando tu compra",
 		"description": "Por favor espera mientras confirmamos tu pago.",
 		"loading": "Confirmando tu compra, por favor espera..."
+	},
+	"aircraftProfiles": {
+		"title": "Mis aeronaves",
+		"subtitle": "Gestiona los perfiles de tus aeronaves para cálculos de peso y balance.",
+		"searchPlaceholder": "Buscar aeronave por nombre o modelo...",
+		"newAircraft": "Nueva aeronave",
+		"delete": "Eliminar",
+		"backToList": "Volver a la lista",
+		"notFound": "Perfil de aeronave no encontrado.",
+		"empty": {
+			"title": "No hay aeronaves registradas",
+			"description": "Comienza añadiendo tu primera aeronave. Puedes empezar desde cero o usar una plantilla predefinida."
+		},
+		"newDialog": {
+			"title": "Nueva aeronave",
+			"description": "Elige cómo deseas crear el perfil de tu aeronave.",
+			"blank": "Empezar desde cero",
+			"blankDescription": "Crea un perfil vacío y rellena todos los datos manualmente.",
+			"templateDescription": "{stations} estaciones · {weight} lb peso en vacío",
+			"nameTitle": "Nombrar aeronave",
+			"nameDescription": "Elige un nombre para identificar este perfil.",
+			"basedOn": "Basado en plantilla:",
+			"back": "Volver",
+			"create": "Crear aeronave"
+		},
+		"form": {
+			"basicInfo": "Información básica",
+			"profileName": "Nombre del perfil",
+			"profileNamePlaceholder": "Ej.: Cessna 172 - EC-ABC",
+			"aircraftModel": "Modelo de aeronave",
+			"registration": "Matrícula",
+			"basicEmptyWeight": "Peso en vacío (BEW)",
+			"basicEmptyCG": "Brazo del peso en vacío",
+			"stations": "Estaciones",
+			"station": "estación",
+			"stationsCount": "estaciones",
+			"noStations": "No hay estaciones añadidas. Haz clic en \"Añadir estación\" para comenzar.",
+			"addStation": "Añadir estación",
+			"removeStation": "Eliminar estación",
+			"stationType": "Tipo de estación",
+			"arm": "Brazo",
+			"maxWeight": "Peso máximo",
+			"weight": "Peso",
+			"seatCount": "Asientos",
+			"fuelCapacity": "Capacidad",
+			"weightPerGallon": "Peso por galón",
+			"forwardCGLimits": "Límites de CG delantero",
+			"aftCGLimits": "Límites de CG trasero",
+			"addForwardLimit": "Añadir límite delantero",
+			"addAftLimit": "Añadir límite trasero",
+			"save": "Guardar",
+			"unsavedChanges": "Tienes cambios sin guardar."
+		},
+		"stationTypes": {
+			"SINGLE_SEAT": "Asiento individual",
+			"ROW_OF_SEATS": "Fila de asientos",
+			"CARGO": "Compartimento de carga",
+			"FUEL": "Depósito de combustible",
+			"AIRCRAFT_ITEMS": "Equipamiento de la aeronave"
+		},
+		"deleteConfirm": {
+			"title": "Eliminar aeronave",
+			"description": "¿Estás seguro de que deseas eliminar este perfil de aeronave? Esta acción no se puede deshacer.",
+			"confirm": "Eliminar"
+		},
+		"notifications": {
+			"created": "¡Aeronave creada correctamente!",
+			"createError": "No se pudo crear la aeronave. Por favor, inténtalo de nuevo.",
+			"creating": "Creando...",
+			"saved": "¡Perfil guardado correctamente!",
+			"saveError": "No se pudo guardar el perfil. Por favor, inténtalo de nuevo.",
+			"saving": "Guardando...",
+			"deleted": "¡Aeronave eliminada correctamente!",
+			"deleteError": "No se pudo eliminar la aeronave. Por favor, inténtalo de nuevo."
+		}
+	},
+	"suggestions": {
+		"navLabel": "Enviar sugerencia",
+		"title": "Sugerencias",
+		"description": "¿Tienes una idea o sugerencia? ¡Compártela con nosotros!",
+		"subject": "Asunto",
+		"subjectPlaceholder": "Ej.: Mejora en la pantalla de aeronaves",
+		"message": "Sugerencia",
+		"messagePlaceholder": "Describe tu sugerencia en detalle...",
+		"send": "Enviar",
+		"sending": "Enviando...",
+		"close": "Cerrar",
+		"successTitle": "¡Sugerencia enviada!",
+		"successMessage": "Gracias por tu sugerencia. Será revisada y nos ayudará a atenderte cada vez mejor.",
+		"notifications": {
+			"error": "No se pudo enviar la sugerencia. Por favor, inténtalo de nuevo."
+		}
 	}
 }

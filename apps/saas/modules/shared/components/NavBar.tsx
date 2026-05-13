@@ -12,12 +12,14 @@ import {
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuTrigger,
+	Label,
 	Logo,
 	Sheet,
 	SheetContent,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
+	Switch,
 } from "@repo/ui";
 import {
 	Tooltip,
@@ -31,9 +33,12 @@ import {
 	BotMessageSquareIcon,
 	ChevronRightIcon,
 	HomeIcon,
+	LightbulbIcon,
 	MenuIcon,
 	PanelLeftCloseIcon,
 	PanelLeftOpenIcon,
+	PlaneTakeoffIcon,
+	RulerIcon,
 	SettingsIcon,
 	ShieldUserIcon,
 	UserCogIcon,
@@ -45,7 +50,9 @@ import { useMemo, useState } from "react";
 
 import { OrganzationSelect } from "../../organizations/components/OrganizationSelect";
 import { useIsMobile } from "../hooks/use-media-query";
+import { useMeasurement } from "../lib/measurement-context";
 import { useSidebar } from "../lib/sidebar-context";
+import { SuggestionDialog } from "./SuggestionDialog";
 
 interface NavSubItem {
 	label: string;
@@ -252,8 +259,10 @@ export function NavBar() {
 	const { user } = useSession();
 	const { activeOrganization, isOrganizationAdmin } = useActiveOrganization();
 	const { isCollapsed, toggleCollapsed } = useSidebar();
+	const { measurementSystem, setMeasurementSystem, isMetric } = useMeasurement();
 	const isMobile = useIsMobile();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [suggestionOpen, setSuggestionOpen] = useState(false);
 
 	// Never use collapsed style on mobile - always show expanded
 	const isCollapsedEffective = isCollapsed && !isMobile;
@@ -317,10 +326,12 @@ export function NavBar() {
 				isActive: pathname === "/" || pathname === basePath,
 			},
 			{
-				label: t("app.menu.aiChatbot"),
-				href: "/chatbot",
-				icon: BotMessageSquareIcon,
-				isActive: pathname.startsWith("/chatbot"),
+				label: t("app.menu.aircraftProfiles"),
+				href: "/aircraft-profiles",
+				icon: PlaneTakeoffIcon,
+				isActive:
+					pathname === "/aircraft-profiles" ||
+					pathname.startsWith("/aircraft-profiles/"),
 			},
 			...(organizationSubItems
 				? [
@@ -354,12 +365,13 @@ export function NavBar() {
 	}, [activeOrganization, basePath, isOrganizationAdmin, pathname, startHref, t, user?.role]);
 
 	return (
-		<nav
-			className={cn(
-				"md:fixed md:top-0 md:left-0 md:h-full md:w-[280px] w-full",
-				isCollapsedEffective && "md:w-[80px]",
-			)}
-		>
+		<>
+			<nav
+				className={cn(
+					"md:fixed md:top-0 md:left-0 md:h-full md:w-[280px] w-full",
+					isCollapsedEffective && "md:w-[80px]",
+				)}
+			>
 			<div className="max-w-6xl py-4 md:min-h-0 md:flex md:h-full md:flex-col md:px-4 md:pb-0 container">
 				<div className="gap-6 md:shrink-0 flex flex-wrap items-center justify-between">
 					<div
@@ -405,6 +417,25 @@ export function NavBar() {
 													onLinkClick={() => setMobileMenuOpen(false)}
 												/>
 											</div>
+
+											<div className="mt-3 gap-2 pt-3 flex items-center justify-between border-t">
+												<Label
+													htmlFor="measurement-switch-mobile"
+													className="gap-1.5 text-xs cursor-pointer flex items-center text-muted-foreground"
+												>
+													<RulerIcon className="size-3.5" />
+													{isMetric
+														? t("common.measurementSystem.metric")
+														: t("common.measurementSystem.imperial")}
+												</Label>
+												<Switch
+													id="measurement-switch-mobile"
+													checked={isMetric}
+													onCheckedChange={(checked) =>
+														setMeasurementSystem(checked ? "metric" : "imperial")
+													}
+												/>
+											</div>
 										</div>
 									</SheetContent>
 								</Sheet>
@@ -434,6 +465,54 @@ export function NavBar() {
 
 								<NotificationCenter className="shrink-0" />
 							</div>
+						</div>
+
+						<div
+							className={cn(
+								"md:flex hidden items-center rounded-lg border border-border/50 bg-muted/30 px-3 py-2",
+								isCollapsedEffective
+									? "md:flex-col md:gap-1.5 md:px-2 md:py-2.5"
+									: "md:flex-row md:justify-between md:gap-2",
+							)}
+						>
+							{isCollapsedEffective ? (
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<div className="gap-1.5 flex flex-col items-center">
+											<RulerIcon className="size-4 text-muted-foreground" />
+											<Switch
+												id="measurement-switch"
+												checked={isMetric}
+												onCheckedChange={(checked) =>
+													setMeasurementSystem(checked ? "metric" : "imperial")
+												}
+											/>
+										</div>
+									</TooltipTrigger>
+									<TooltipContent side="right">
+										{t("common.measurementSystem.tooltip")}: {isMetric ? t("common.measurementSystem.metric") : t("common.measurementSystem.imperial")}
+									</TooltipContent>
+								</Tooltip>
+							) : (
+								<>
+									<Label
+										htmlFor="measurement-switch"
+										className="gap-1.5 text-xs cursor-pointer flex items-center text-muted-foreground"
+									>
+										<RulerIcon className="size-3.5" />
+										{isMetric
+											? t("common.measurementSystem.metric")
+											: t("common.measurementSystem.imperial")}
+									</Label>
+									<Switch
+										id="measurement-switch"
+										checked={isMetric}
+										onCheckedChange={(checked) =>
+											setMeasurementSystem(checked ? "metric" : "imperial")
+										}
+									/>
+								</>
+							)}
 						</div>
 
 						{authConfig.organizations.enable && !authConfig.organizations.hideOrganization && (
@@ -478,6 +557,30 @@ export function NavBar() {
 						isCollapsedEffective && "md:items-center",
 					)}
 				>
+					{/* Suggestion button */}
+				<TooltipProvider delayDuration={0}>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<button
+								type="button"
+								onClick={() => setSuggestionOpen(true)}
+								className={cn(
+									"gap-2 rounded-lg px-3 py-2 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground flex items-center w-full",
+									isCollapsedEffective && "justify-center px-2",
+								)}
+							>
+								<LightbulbIcon className="size-4 shrink-0" />
+								{!isCollapsedEffective && (
+									<span>{t("suggestions.navLabel")}</span>
+								)}
+							</button>
+						</TooltipTrigger>
+						{isCollapsedEffective && (
+							<TooltipContent side="right">{t("suggestions.navLabel")}</TooltipContent>
+						)}
+					</Tooltip>
+				</TooltipProvider>
+
 					<div
 						className={cn(
 							"min-w-0 w-full flex-1",
@@ -489,5 +592,8 @@ export function NavBar() {
 				</div>
 			</div>
 		</nav>
+
+			<SuggestionDialog open={suggestionOpen} onOpenChange={setSuggestionOpen} />
+		</>
 	);
 }

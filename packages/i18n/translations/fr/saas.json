@@ -74,6 +74,7 @@
 			"accountSettings": "Paramètres du compte",
 			"admin": "Admin",
 			"aiChatbot": "Chatbot IA",
+			"aircraftProfiles": "Mes aéronefs",
 			"navigationTitle": "Menu",
 			"openNavigation": "Ouvrir la navigation",
 			"organizationSettings": "Paramètres de l'organisation",
@@ -632,6 +633,11 @@
 			"light": "Clair",
 			"dark": "Sombre"
 		},
+		"measurementSystem": {
+			"metric": "Métrique",
+			"imperial": "Impérial",
+			"tooltip": "Système de mesure"
+		},
 		"passwordCriteria": {
 			"minLength": "Min. 8 caractères",
 			"upperAndLowercase": "Majuscules et minuscules",
@@ -643,5 +649,97 @@
 		"title": "Traitement de votre achat",
 		"description": "Veuillez patienter pendant que nous confirmons votre paiement.",
 		"loading": "Confirmation de votre achat en cours, veuillez patienter..."
+	},
+	"aircraftProfiles": {
+		"title": "Mes aéronefs",
+		"subtitle": "Gérez vos profils d'aéronefs pour les calculs de masse et centrage.",
+		"searchPlaceholder": "Rechercher un aéronef par nom ou modèle...",
+		"newAircraft": "Nouvel aéronef",
+		"delete": "Supprimer",
+		"backToList": "Retour à la liste",
+		"notFound": "Profil d'aéronef introuvable.",
+		"empty": {
+			"title": "Aucun aéronef enregistré",
+			"description": "Commencez par ajouter votre premier aéronef. Vous pouvez partir de zéro ou utiliser un modèle prédéfini."
+		},
+		"newDialog": {
+			"title": "Nouvel aéronef",
+			"description": "Choisissez comment vous souhaitez créer le profil de votre aéronef.",
+			"blank": "Partir de zéro",
+			"blankDescription": "Créez un profil vide et remplissez toutes les données manuellement.",
+			"templateDescription": "{stations} stations · {weight} lb masse à vide",
+			"nameTitle": "Nommer l'aéronef",
+			"nameDescription": "Choisissez un nom pour identifier ce profil.",
+			"basedOn": "Basé sur le modèle :",
+			"back": "Retour",
+			"create": "Créer l'aéronef"
+		},
+		"form": {
+			"basicInfo": "Informations de base",
+			"profileName": "Nom du profil",
+			"profileNamePlaceholder": "Ex. : Cessna 172 - F-GABC",
+			"aircraftModel": "Modèle d'aéronef",
+			"registration": "Immatriculation",
+			"basicEmptyWeight": "Masse à vide de base (BEW)",
+			"basicEmptyCG": "Bras du centrage à vide",
+			"stations": "Stations",
+			"station": "station",
+			"stationsCount": "stations",
+			"noStations": "Aucune station ajoutée. Cliquez sur \"Ajouter une station\" pour commencer.",
+			"addStation": "Ajouter une station",
+			"removeStation": "Supprimer la station",
+			"stationType": "Type de station",
+			"arm": "Bras",
+			"maxWeight": "Masse maximale",
+			"weight": "Masse",
+			"seatCount": "Sièges",
+			"fuelCapacity": "Capacité",
+			"weightPerGallon": "Masse par gallon",
+			"forwardCGLimits": "Limites de centrage avant",
+			"aftCGLimits": "Limites de centrage arrière",
+			"addForwardLimit": "Ajouter une limite avant",
+			"addAftLimit": "Ajouter une limite arrière",
+			"save": "Enregistrer",
+			"unsavedChanges": "Vous avez des modifications non enregistrées."
+		},
+		"stationTypes": {
+			"SINGLE_SEAT": "Siège individuel",
+			"ROW_OF_SEATS": "Rangée de sièges",
+			"CARGO": "Compartiment cargo",
+			"FUEL": "Réservoir de carburant",
+			"AIRCRAFT_ITEMS": "Équipements de l'aéronef"
+		},
+		"deleteConfirm": {
+			"title": "Supprimer l'aéronef",
+			"description": "Êtes-vous sûr de vouloir supprimer ce profil d'aéronef ? Cette action est irréversible.",
+			"confirm": "Supprimer"
+		},
+		"notifications": {
+			"created": "Aéronef créé avec succès !",
+			"createError": "Impossible de créer l'aéronef. Veuillez réessayer.",
+			"creating": "Création en cours...",
+			"saved": "Profil enregistré avec succès !",
+			"saveError": "Impossible d'enregistrer le profil. Veuillez réessayer.",
+			"saving": "Enregistrement...",
+			"deleted": "Aéronef supprimé avec succès !",
+			"deleteError": "Impossible de supprimer l'aéronef. Veuillez réessayer."
+		}
+	},
+	"suggestions": {
+		"navLabel": "Envoyer une suggestion",
+		"title": "Suggestions",
+		"description": "Vous avez une idée ou une suggestion ? Partagez-la avec nous !",
+		"subject": "Sujet",
+		"subjectPlaceholder": "Ex. : Amélioration de l'écran des aéronefs",
+		"message": "Suggestion",
+		"messagePlaceholder": "Décrivez votre suggestion en détail...",
+		"send": "Envoyer",
+		"sending": "Envoi en cours...",
+		"close": "Fermer",
+		"successTitle": "Suggestion envoyée !",
+		"successMessage": "Merci pour votre suggestion. Elle sera examinée et nous aidera à mieux vous servir chaque jour.",
+		"notifications": {
+			"error": "Impossible d'envoyer la suggestion. Veuillez réessayer."
+		}
 	}
 }

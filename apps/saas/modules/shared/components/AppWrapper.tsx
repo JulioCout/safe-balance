@@ -3,6 +3,7 @@
 import { cn } from "@repo/ui";
 import type { PropsWithChildren } from "react";
 
+import { MeasurementProvider } from "../lib/measurement-context";
 import { SidebarProvider, useSidebar } from "../lib/sidebar-context";
 import { NavBar } from "./NavBar";
 
@@ -28,8 +29,10 @@ function AppContent({ children }: PropsWithChildren) {
 
 export function AppWrapper({ children }: PropsWithChildren) {
 	return (
-		<SidebarProvider>
-			<AppContent>{children}</AppContent>
-		</SidebarProvider>
+		<MeasurementProvider>
+			<SidebarProvider>
+				<AppContent>{children}</AppContent>
+			</SidebarProvider>
+		</MeasurementProvider>
 	);
 }
