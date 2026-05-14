@@ -75,3 +75,16 @@ export const useDeleteAircraftProfileMutation = () => {
 		},
 	});
 };
+
+// ── Send Report ─────────────────────────────────────────────────────
+export const useSendReportMutation = () => {
+	return useMutation({
+		mutationKey: ["send-aircraft-report"],
+		mutationFn: async (input: {
+			profileName: string;
+			pdfBase64: string;
+		}) => {
+			return orpcClient.aircraftProfiles.sendReport(input);
+		},
+	});
+};

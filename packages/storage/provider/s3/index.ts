@@ -3,7 +3,7 @@ import { getSignedUrl as getS3SignedUrl } from "@aws-sdk/s3-request-presigner";
 import { logger } from "@repo/logs";
 
 import { config } from "../../config";
-import type { GetSignedUploadUrlHandler, GetSignedUrlHander } from "../../types";
+import type { GetSignedUploadUrlHandler, GetSignedUrlHander, UploadFileHandler } from "../../types";
 
 let s3Client: S3Client | null = null;
 
@@ -80,5 +80,28 @@ export const getSignedUrl: GetSignedUrlHander = async (path, { bucket, expiresIn
 	} catch (e) {
 		logger.error(e);
 		throw new Error("Could not get signed url");
+	}
+};
+
+export const uploadFile: UploadFileHandler = async (path, file, { bucket, contentType }) => {
+	const bucketName = config.bucketNames[bucket as keyof typeof config.bucketNames];
+
+	if (!bucketName) {
+		throw new Error("Invalid bucket");
+	}
+
+	const s3Client = getS3Client();
+	try {
+		await s3Client.send(
+			new PutObjectCommand({
+				Bucket: bucketName,
+				Key: path,
+				Body: file,
+				ContentType: contentType,
+			})
+		);
+	} catch (e) {
+		logger.error(e);
+		throw new Error("Could not upload file");
 	}
 };

@@ -1,15 +1,19 @@
 "use client";
 
-import { Button, Card, Input, Label, Skeleton, cn } from "@repo/ui";
+import { Button, Card, Input, Label, Skeleton, cn, Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@repo/ui";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@repo/ui/components/chart";
 import { PageHeader } from "@shared/components/PageHeader";
-import { ArrowLeftIcon, CalculatorIcon } from "lucide-react";
+import { ArrowLeftIcon, CalculatorIcon, FileTextIcon, Loader2Icon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { CartesianGrid, ReferenceLine, Scatter, ScatterChart, XAxis, YAxis, ResponsiveContainer } from "recharts";
+import { toast } from "sonner";
+import SignatureCanvas from "react-signature-canvas";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
-import { useAircraftProfilesQuery } from "../lib/api";
+import { useAircraftProfilesQuery, useSendReportMutation } from "../lib/api";
 import type { AircraftProfileData } from "../lib/types";
 
 interface AircraftBalanceCalculatorProps {
@@ -19,6 +23,15 @@ interface AircraftBalanceCalculatorProps {
 export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculatorProps) {
 	const t = useTranslations();
 	const { data: profiles, isLoading } = useAircraftProfilesQuery();
+	const { mutateAsync: sendReport } = useSendReportMutation();
+
+	// refs
+	const reportRef = useRef<HTMLDivElement>(null);
+	const sigCanvasRef = useRef<SignatureCanvas>(null);
+
+	// modal state
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isGenerating, setIsGenerating] = useState(false);
 
 	const profile = profiles?.find((p) => p.id === profileId);
 	const data = profile?.data as unknown as AircraftProfileData;
@@ -93,6 +106,62 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 		};
 	}, [data, calculations]);
 
+	const handleGenerateReport = async () => {
+		if (sigCanvasRef.current?.isEmpty()) {
+			toast.error("Por favor, assine o relatório antes de gerar.");
+			return;
+		}
+
+		if (!reportRef.current) return;
+
+		try {
+			setIsGenerating(true);
+			
+			// Get signature data URL
+			const signatureDataUrl = sigCanvasRef.current?.getTrimmedCanvas().toDataURL("image/png");
+
+			// Take snapshot of the report area
+			const canvas = await html2canvas(reportRef.current, { scale: 2 });
+			const imgData = canvas.toDataURL("image/png");
+			
+			// Create PDF
+			const pdf = new jsPDF("p", "pt", "a4");
+			const pdfWidth = pdf.internal.pageSize.getWidth();
+			const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+			
+			pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+			
+			// Add signature image below the snapshot
+			if (signatureDataUrl) {
+				const sigWidth = 150;
+				const sigHeight = 50;
+				// Add a bit of margin
+				const startY = pdfHeight + 20 < pdf.internal.pageSize.getHeight() - 100 
+					? pdfHeight + 20 
+					: pdf.internal.pageSize.getHeight() - 100;
+				
+				pdf.addImage(signatureDataUrl, "PNG", 50, startY, sigWidth, sigHeight);
+				pdf.setFontSize(10);
+				pdf.text("Assinatura do Piloto", 50, startY + sigHeight + 15);
+			}
+
+			const base64 = pdf.output("datauristring");
+			
+			await sendReport({
+				profileName: profile?.name || "Aeronave",
+				pdfBase64: base64,
+			});
+
+			toast.success("Relatório gerado e enviado para seu e-mail!");
+			setIsModalOpen(false);
+		} catch (error) {
+			console.error(error);
+			toast.error("Ocorreu um erro ao gerar o relatório.");
+		} finally {
+			setIsGenerating(false);
+		}
+	};
+
 	if (isLoading) {
 		return (
 			<div className="gap-6 flex flex-col">
@@ -126,20 +195,26 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 	return (
 		<div>
 			{/* Header */}
-			<div className="gap-4 mb-6 flex items-center">
-				<Button asChild variant="ghost" size="icon" className="shrink-0">
-					<Link href="/aircraft-profiles">
-						<ArrowLeftIcon className="size-5" />
-					</Link>
+			<div className="gap-4 mb-6 flex items-center justify-between">
+				<div className="flex items-center gap-4">
+					<Button asChild variant="ghost" size="icon" className="shrink-0">
+						<Link href="/aircraft-profiles">
+							<ArrowLeftIcon className="size-5" />
+						</Link>
+					</Button>
+					<PageHeader
+						title={`${t("aircraftProfiles.calculate")} - ${profile.name}`}
+						subtitle={data.aircraftModel}
+						className="mb-0"
+					/>
+				</div>
+				<Button onClick={() => setIsModalOpen(true)} className="gap-2">
+					<FileTextIcon className="size-4" />
+					Gerar Relatório
 				</Button>
-				<PageHeader
-					title={`${t("aircraftProfiles.calculate")} - ${profile.name}`}
-					subtitle={data.aircraftModel}
-					className="mb-0"
-				/>
 			</div>
 
-			<div className="gap-6 grid grid-cols-1 md:grid-cols-2 items-start">
+			<div ref={reportRef} className="gap-6 grid grid-cols-1 md:grid-cols-2 items-start bg-background p-2 -mx-2 rounded-xl">
 				{/* Left Column: Inputs */}
 				<div className="gap-4 flex flex-col">
 					<Card className="p-5">
@@ -287,6 +362,43 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 					</Card>
 				</div>
 			</div>
+
+			{/* Signature Modal */}
+			<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+				<DialogContent className="sm:max-w-[500px]">
+					<DialogHeader>
+						<DialogTitle>Assinatura do Piloto</DialogTitle>
+					</DialogHeader>
+					<div className="flex flex-col gap-4 py-4">
+						<p className="text-sm text-muted-foreground">
+							Por favor, assine abaixo para confirmar os dados do cálculo de balanceamento.
+						</p>
+						<div className="border rounded-md bg-white">
+							<SignatureCanvas
+								ref={sigCanvasRef}
+								penColor="black"
+								canvasProps={{
+									className: "w-full h-40",
+								}}
+							/>
+						</div>
+						<div className="flex justify-end">
+							<Button variant="ghost" size="sm" onClick={() => sigCanvasRef.current?.clear()}>
+								Limpar Assinatura
+							</Button>
+						</div>
+					</div>
+					<DialogFooter>
+						<Button variant="outline" onClick={() => setIsModalOpen(false)} className="text-foreground">
+							Cancelar
+						</Button>
+						<Button onClick={handleGenerateReport} disabled={isGenerating}>
+							{isGenerating && <Loader2Icon className="mr-2 size-4 animate-spin" />}
+							Confirmar e Enviar
+						</Button>
+					</DialogFooter>
+				</DialogContent>
+			</Dialog>
 		</div>
 	);
 }

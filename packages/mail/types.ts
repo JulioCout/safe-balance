@@ -25,6 +25,7 @@ export interface SendEmailParams {
 	subject: string;
 	text: string;
 	html?: string;
+	attachments?: { filename: string; content: Buffer | string; contentType?: string }[];
 }
 
 export type SendEmailHandler = (params: SendEmailParams) => Promise<void>;

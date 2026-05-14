@@ -33,11 +33,13 @@
 		"openai": "catalog:",
 		"openapi-merge": "^1.3.3",
 		"use-intl": "catalog:",
+		"uuid": "catalog:",
 		"zod": "catalog:"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
 		"@types/react": "catalog:",
+		"@types/uuid": "catalog:",
 		"@vitest/coverage-v8": "catalog:",
 		"encoding": "^0.1.13",
 		"typescript": "catalog:",

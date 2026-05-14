@@ -15,11 +15,13 @@ export async function sendEmail<T extends TemplateId>(
 		| {
 				templateId: T;
 				context: Omit<Parameters<(typeof mailTemplates)[T]>[0], "locale" | "translations">;
+				attachments?: { filename: string; content: Buffer | string; contentType?: string }[];
 		  }
 		| {
 				subject: string;
 				text?: string;
 				html?: string;
+				attachments?: { filename: string; content: Buffer | string; contentType?: string }[];
 		  }
 	),
 ) {
@@ -45,6 +47,8 @@ export async function sendEmail<T extends TemplateId>(
 		html = params.html ?? "";
 	}
 
+	const attachments = "attachments" in params ? params.attachments : undefined;
+
 	try {
 		await send({
 			to,
@@ -52,6 +56,7 @@ export async function sendEmail<T extends TemplateId>(
 			subject,
 			text,
 			html,
+			attachments,
 		});
 		return true;
 	} catch (e) {

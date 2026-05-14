@@ -71,7 +71,7 @@
 	},
 	"app": {
 		"menu": {
-			"accountSettings": "Configurações da conta",
+			"accountSettings": "Configurações da Conta",
 			"admin": "Admin",
 			"aiChatbot": "Chatbot de IA",
 			"aircraftProfiles": "Minhas Aeronaves",
@@ -81,7 +81,7 @@
 			"start": "Início"
 		},
 		"userMenu": {
-			"accountSettings": "Configurações da conta",
+			"accountSettings": "Configurações da Conta",
 			"colorMode": "Modo de cor",
 			"documentation": "Documentação",
 			"home": "Início",
@@ -547,7 +547,7 @@
 				}
 			},
 			"subtitle": "Gerencie as configurações da sua conta pessoal.",
-			"title": "Configurações da conta"
+			"title": "Configurações da Conta"
 		},
 		"billing": {
 			"createCustomerPortal": {

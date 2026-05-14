@@ -3,6 +3,10 @@ export interface StorageBucketNamesConfig {
 	 * Bucket used for user and organization avatar uploads.
 	 */
 	avatars: string;
+	/**
+	 * Bucket used for calculation reports.
+	 */
+	relatorios: string;
 }
 
 export interface StorageConfig {
@@ -33,3 +37,12 @@ export type GetSignedUrlHander = (
 		expiresIn?: number;
 	},
 ) => Promise<string>;
+
+export type UploadFileHandler = (
+	path: string,
+	file: Buffer | Uint8Array,
+	options: {
+		bucket: keyof StorageBucketNamesConfig;
+		contentType?: string;
+	},
+) => Promise<void>;
