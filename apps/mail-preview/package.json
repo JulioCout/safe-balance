@@ -13,12 +13,12 @@
 		"@react-email/preview-server": "^5.2.10",
 		"@repo/mail": "workspace:*",
 		"react": "catalog:",
-		"react-email": "^6.1.1"
+		"react-email": "^6.1.4"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "^25.6.0",
+		"@types/node": "^25.7.0",
 		"@types/react": "^19.2.14",
-		"next": "^16.2.5"
+		"next": "^16.2.6"
 	}
 }
