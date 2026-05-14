@@ -68,7 +68,6 @@ export function AircraftProfileForm({ profileId }: AircraftProfileFormProps) {
 			name: t(`aircraftProfiles.stationTypes.${type}`),
 			type,
 			arm: 0,
-			maxWeight: 0,
 			...(type === "SINGLE_SEAT" ? { seatCount: 1 } : {}),
 			...(type === "ROW_OF_SEATS" ? { seatCount: 2 } : {}),
 			...(type === "FUEL" ? { fuelCapacityGallons: 0, weightPerGallon: 6 } : {}),
@@ -210,7 +209,7 @@ export function AircraftProfileForm({ profileId }: AircraftProfileFormProps) {
 
 				<div className="my-1 h-px bg-border" />
 
-				<div className="gap-4 grid grid-cols-1 sm:grid-cols-2">
+				<div className="gap-4 grid grid-cols-1 sm:grid-cols-3">
 					<div className="gap-1.5 flex flex-col">
 						<Label htmlFor="basicEmptyWeight">
 							{t("aircraftProfiles.form.basicEmptyWeight")} (lb)
@@ -236,6 +235,20 @@ export function AircraftProfileForm({ profileId }: AircraftProfileFormProps) {
 							value={formData.basicEmptyCG || ""}
 							onChange={(e) =>
 								updateField("basicEmptyCG", Number.parseFloat(e.target.value) || 0)
+							}
+						/>
+					</div>
+					<div className="gap-1.5 flex flex-col">
+						<Label htmlFor="mtow">
+							{t("aircraftProfiles.form.mtow")} (lb)
+						</Label>
+						<Input
+							id="mtow"
+							type="number"
+							step="0.1"
+							value={formData.mtow || ""}
+							onChange={(e) =>
+								updateField("mtow", Number.parseFloat(e.target.value) || 0)
 							}
 						/>
 					</div>
@@ -324,22 +337,7 @@ export function AircraftProfileForm({ profileId }: AircraftProfileFormProps) {
 											className="h-8 text-sm"
 										/>
 									</div>
-									<div className="gap-1 flex flex-col">
-										<Label className="text-muted-foreground text-xs">
-											{t("aircraftProfiles.form.maxWeight")} (lb)
-										</Label>
-										<Input
-											type="number"
-											step="0.1"
-											value={station.maxWeight || ""}
-											onChange={(e) =>
-												updateStation(station.id, {
-													maxWeight: Number.parseFloat(e.target.value) || 0,
-												})
-											}
-											className="h-8 text-sm"
-										/>
-									</div>
+
 
 									{(station.type === "SINGLE_SEAT" ||
 										station.type === "ROW_OF_SEATS") && (

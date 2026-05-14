@@ -10,7 +10,6 @@ export interface AircraftStation {
 	name: string;
 	type: StationType;
 	arm: number;
-	maxWeight?: number;
 	seatCount?: number;
 	fuelCapacityGallons?: number;
 	weightPerGallon?: number;
@@ -27,6 +26,7 @@ export interface AircraftProfileData {
 	registration?: string;
 	basicEmptyWeight: number;
 	basicEmptyCG: number;
+	mtow: number;
 	stations: AircraftStation[];
 	forwardCGLimits: CGLimit[];
 	aftCGLimits: CGLimit[];
@@ -57,13 +57,13 @@ export const CESSNA_172_TEMPLATE: AircraftProfileTemplate = {
 		registration: "",
 		basicEmptyWeight: 1642,
 		basicEmptyCG: 38.3,
+		mtow: 2550,
 		stations: [
 			{
 				id: "station-front-seats",
 				name: "Piloto e Passageiro Dianteiro",
 				type: "ROW_OF_SEATS",
 				arm: 37,
-				maxWeight: 340,
 				seatCount: 2,
 			},
 			{
@@ -71,7 +71,6 @@ export const CESSNA_172_TEMPLATE: AircraftProfileTemplate = {
 				name: "Passageiros Traseiros",
 				type: "ROW_OF_SEATS",
 				arm: 73,
-				maxWeight: 150,
 				seatCount: 2,
 			},
 			{
@@ -79,14 +78,12 @@ export const CESSNA_172_TEMPLATE: AircraftProfileTemplate = {
 				name: "Bagagem (Área 1)",
 				type: "CARGO",
 				arm: 95,
-				maxWeight: 40,
 			},
 			{
 				id: "station-fuel",
 				name: "Combustível (30 gal)",
 				type: "FUEL",
 				arm: 48,
-				maxWeight: 180,
 				fuelCapacityGallons: 30,
 				weightPerGallon: 6,
 			},
@@ -112,6 +109,7 @@ export function createEmptyProfileData(): AircraftProfileData {
 		registration: "",
 		basicEmptyWeight: 0,
 		basicEmptyCG: 0,
+		mtow: 0,
 		stations: [],
 		forwardCGLimits: [],
 		aftCGLimits: [],

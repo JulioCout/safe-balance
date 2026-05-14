@@ -657,6 +657,19 @@
 		"newAircraft": "New Aircraft",
 		"delete": "Delete",
 		"backToList": "Back to list",
+		"edit": "Edit",
+		"calculate": "Calculate",
+		"calculator": {
+			"flightWeights": "Flight Weights",
+			"results": "Balance Results",
+			"envelope": "Center of Gravity Envelope",
+			"currentCG": "Current CG",
+			"moment": "Moment",
+			"totals": "TOTALS",
+			"overweight": "Overweight!",
+			"withinLimit": "Within Limit",
+			"noEnvelopeLimits": "No envelope limits defined in this profile."
+		},
 		"notFound": "Aircraft profile not found.",
 		"empty": {
 			"title": "No aircraft registered",
@@ -681,6 +694,7 @@
 			"aircraftModel": "Aircraft model",
 			"registration": "Registration",
 			"basicEmptyWeight": "Basic empty weight (BEW)",
+			"mtow": "Maximum Takeoff Weight (MTOW)",
 			"basicEmptyCG": "Empty weight arm",
 			"stations": "Stations",
 			"station": "station",

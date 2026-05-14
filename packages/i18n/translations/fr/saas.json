@@ -657,6 +657,19 @@
 		"newAircraft": "Nouvel aéronef",
 		"delete": "Supprimer",
 		"backToList": "Retour à la liste",
+		"edit": "Modifier",
+		"calculate": "Calculer",
+		"calculator": {
+			"flightWeights": "Poids du Vol",
+			"results": "Résultats de Centrage",
+			"envelope": "Enveloppe de Centrage",
+			"currentCG": "CG Actuel",
+			"moment": "Moment",
+			"totals": "TOTAUX",
+			"overweight": "En surpoids!",
+			"withinLimit": "Dans la limite",
+			"noEnvelopeLimits": "Aucune limite d'enveloppe définie dans ce profil."
+		},
 		"notFound": "Profil d'aéronef introuvable.",
 		"empty": {
 			"title": "Aucun aéronef enregistré",
@@ -681,6 +694,7 @@
 			"aircraftModel": "Modèle d'aéronef",
 			"registration": "Immatriculation",
 			"basicEmptyWeight": "Masse à vide de base (BEW)",
+			"mtow": "Masse maximale au décollage (MTOW)",
 			"basicEmptyCG": "Bras du centrage à vide",
 			"stations": "Stations",
 			"station": "station",

@@ -17,11 +17,13 @@ import {
 import { toastError, toastSuccess } from "@repo/ui/components/toast";
 import { PageHeader } from "@shared/components/PageHeader";
 import {
+	EditIcon,
 	PlaneTakeoffIcon,
 	PlusIcon,
 	SearchIcon,
 	Trash2Icon,
 	WeightIcon,
+	CalculatorIcon,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -116,16 +118,11 @@ export function AircraftProfileList() {
 						const stationCount = data?.stations?.length ?? 0;
 
 						return (
-							<Link
-								key={profile.id}
-								href={`/aircraft-profiles/${profile.id}`}
-								className="group block"
-							>
-								<Card className="gap-0 relative overflow-hidden p-0 transition-all hover:border-primary/30 hover:shadow-md">
+							<Card key={profile.id} className="group gap-0 relative overflow-hidden p-0 transition-all flex flex-col border border-border shadow-sm">
 									{/* Gradient header strip */}
 									<div className="h-2 w-full bg-gradient-to-r from-sky-500 to-blue-600" />
 
-									<div className="p-4">
+									<div className="p-4 flex-1">
 										{/* Title row */}
 										<div className="mb-3 flex items-start justify-between">
 											<div className="min-w-0 flex-1">
@@ -143,7 +140,7 @@ export function AircraftProfileList() {
 													e.stopPropagation();
 													setDeleteId(profile.id);
 												}}
-												className="ml-2 rounded-md p-1.5 opacity-0 transition-opacity hover:bg-destructive/10 group-hover:opacity-100"
+												className="ml-2 rounded-md p-1.5 opacity-0 transition-opacity hover:bg-destructive/10 group-hover:opacity-100 focus:opacity-100"
 												aria-label={t("aircraftProfiles.delete")}
 											>
 												<Trash2Icon className="size-4 text-destructive" />
@@ -195,8 +192,21 @@ export function AircraftProfileList() {
 											</div>
 										)}
 									</div>
+									<div className="border-t bg-muted/30 p-3 flex gap-2">
+										<Button asChild variant="secondary" className="flex-1 gap-2">
+											<Link href={`/aircraft-profiles/${profile.id}`}>
+												<EditIcon className="size-4" />
+												{t("aircraftProfiles.edit")}
+											</Link>
+										</Button>
+										<Button asChild className="flex-1 gap-2">
+											<Link href={`/aircraft-profiles/${profile.id}/calculate`}>
+												<CalculatorIcon className="size-4" />
+												{t("aircraftProfiles.calculate")}
+											</Link>
+										</Button>
+									</div>
 								</Card>
-							</Link>
 						);
 					})}
 				</div>

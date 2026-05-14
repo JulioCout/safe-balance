@@ -657,6 +657,19 @@
 		"newAircraft": "Nova Aeronave",
 		"delete": "Excluir",
 		"backToList": "Voltar para a lista",
+		"edit": "Editar",
+		"calculate": "Calcular",
+		"calculator": {
+			"flightWeights": "Pesos do Voo",
+			"results": "Resultados do Balanceamento",
+			"envelope": "Envelope de Centro de Gravidade",
+			"currentCG": "CG Atual",
+			"moment": "Momento",
+			"totals": "TOTAIS",
+			"overweight": "Acima do Peso!",
+			"withinLimit": "Dentro do Limite",
+			"noEnvelopeLimits": "Nenhum limite de envelope definido no perfil."
+		},
 		"notFound": "Perfil de aeronave não encontrado.",
 		"empty": {
 			"title": "Nenhuma aeronave cadastrada",
@@ -681,6 +694,7 @@
 			"aircraftModel": "Modelo da aeronave",
 			"registration": "Matrícula",
 			"basicEmptyWeight": "Peso vazio (BEW)",
+			"mtow": "Peso máximo de decolagem (MTOW)",
 			"basicEmptyCG": "Braço do peso vazio",
 			"stations": "Estações",
 			"station": "estação",

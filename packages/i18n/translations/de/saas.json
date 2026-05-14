@@ -654,6 +654,19 @@
 		"newAircraft": "Neues Flugzeug",
 		"delete": "Löschen",
 		"backToList": "Zurück zur Liste",
+		"edit": "Bearbeiten",
+		"calculate": "Berechnen",
+		"calculator": {
+			"flightWeights": "Fluggewichte",
+			"results": "Schwerpunkt Ergebnisse",
+			"envelope": "Schwerpunktbereich",
+			"currentCG": "Aktueller Schwerpunkt",
+			"moment": "Moment",
+			"totals": "GESAMT",
+			"overweight": "Übergewicht!",
+			"withinLimit": "Innerhalb des Limits",
+			"noEnvelopeLimits": "In diesem Profil sind keine Grenzen definiert."
+		},
 		"notFound": "Flugzeugprofil nicht gefunden.",
 		"empty": {
 			"title": "Keine Flugzeuge registriert",
@@ -678,6 +691,7 @@
 			"aircraftModel": "Flugzeugmodell",
 			"registration": "Kennzeichen",
 			"basicEmptyWeight": "Leermasse (BEW)",
+			"mtow": "Maximales Abfluggewicht (MTOW)",
 			"basicEmptyCG": "Schwerpunktarm der Leermasse",
 			"stations": "Stationen",
 			"station": "Station",
