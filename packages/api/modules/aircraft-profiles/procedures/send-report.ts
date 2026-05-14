@@ -22,7 +22,7 @@ export const sendReportProcedure = protectedProcedure
 	.handler(async ({ input: { profileName, pdfBase64 }, context: { user } }) => {
 		// Convert base64 to buffer
 		// The base64 string usually comes with a prefix like "data:application/pdf;base64,..."
-		const base64Data = pdfBase64.replace(/^data:application\/pdf;base64,/, "");
+		const base64Data = pdfBase64.split("base64,")[1] || pdfBase64;
 		const buffer = Buffer.from(base64Data, "base64");
 
 		// Upload to storage
