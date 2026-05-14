@@ -10,7 +10,7 @@ import { useState, useMemo, useRef } from "react";
 import { CartesianGrid, ReferenceLine, Scatter, ScatterChart, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { toast } from "sonner";
 import SignatureCanvas from "react-signature-canvas";
-import { toPng } from "html-to-image";
+import { toJpeg } from "html-to-image";
 import jsPDF from "jspdf";
 
 import { useAircraftProfilesQuery, useSendReportMutation } from "../lib/api";
@@ -121,17 +121,27 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 			const signatureDataUrl = sigCanvasRef.current?.getTrimmedCanvas().toDataURL("image/png");
 
 			// Take snapshot of the report area
-			const imgData = await toPng(reportRef.current, { cacheBust: true, pixelRatio: 2 });
+			const imgData = await toJpeg(reportRef.current, { 
+				cacheBust: true, 
+				quality: 0.85,
+				pixelRatio: 1,
+				backgroundColor: "hsl(var(--background))"
+			});
 			
 			// Create PDF
-			const pdf = new jsPDF("p", "pt", "a4");
+			const pdf = new jsPDF({
+				orientation: "p",
+				unit: "pt",
+				format: "a4",
+				compress: true
+			});
 			const pdfWidth = pdf.internal.pageSize.getWidth();
 			
-			// We need to calculate the aspect ratio from the DOM node since toPng gives us base64 directly
+			// We need to calculate the aspect ratio from the DOM node since toJpeg gives us base64 directly
 			const rect = reportRef.current.getBoundingClientRect();
 			const pdfHeight = (rect.height * pdfWidth) / rect.width;
 			
-			pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+			pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, undefined, "FAST");
 			
 			// Add signature image below the snapshot
 			if (signatureDataUrl) {
