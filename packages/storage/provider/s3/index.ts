@@ -74,7 +74,7 @@ export const getSignedUrl: GetSignedUrlHander = async (path, { bucket, expiresIn
 
 	const s3Client = getS3Client();
 	try {
-		return getS3SignedUrl(s3Client, new GetObjectCommand({ Bucket: bucketName, Key: path }), {
+		return await getS3SignedUrl(s3Client, new GetObjectCommand({ Bucket: bucketName, Key: path }), {
 			expiresIn,
 		});
 	} catch (e) {
