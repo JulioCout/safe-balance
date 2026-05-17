@@ -46,3 +46,17 @@ export type UploadFileHandler = (
 		contentType?: string;
 	},
 ) => Promise<void>;
+
+export interface FileObject {
+	key: string;
+	lastModified?: Date;
+	size?: number;
+}
+
+export type ListFilesHandler = (
+	prefix: string,
+	options: {
+		bucket: keyof StorageBucketNamesConfig;
+	},
+) => Promise<FileObject[]>;
+

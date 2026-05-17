@@ -32,6 +32,7 @@ import { UserMenu } from "@shared/components/UserMenu";
 import {
 	BotMessageSquareIcon,
 	ChevronRightIcon,
+	FileTextIcon,
 	HomeIcon,
 	LightbulbIcon,
 	MenuIcon,
@@ -332,6 +333,14 @@ export function NavBar() {
 				isActive:
 					pathname === "/aircraft-profiles" ||
 					pathname.startsWith("/aircraft-profiles/"),
+			},
+			{
+				label: "Meus Relatórios",
+				href: "/reports",
+				icon: FileTextIcon,
+				isActive:
+					pathname === "/reports" ||
+					pathname.startsWith("/reports/"),
 			},
 			...(organizationSubItems
 				? [
