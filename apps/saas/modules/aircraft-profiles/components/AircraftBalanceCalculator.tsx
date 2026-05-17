@@ -32,6 +32,7 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 	// modal state
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isGenerating, setIsGenerating] = useState(false);
+	const [captainName, setCaptainName] = useState("");
 
 	const profile = profiles?.find((p) => p.id === profileId);
 	const data = profile?.data as unknown as AircraftProfileData;
@@ -107,6 +108,11 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 	}, [data, calculations]);
 
 	const handleGenerateReport = async () => {
+		if (!captainName.trim()) {
+			toast.error("Por favor, digite o nome do capitão.");
+			return;
+		}
+
 		if (sigCanvasRef.current?.isEmpty()) {
 			toast.error("Por favor, assine o relatório antes de gerar.");
 			return;
@@ -117,6 +123,16 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 		try {
 			setIsGenerating(true);
 			
+			// Get current date and time (carimbo de data/hora) when the file is being generated
+			const timestamp = new Date().toLocaleString("pt-BR", {
+				day: "2-digit",
+				month: "2-digit",
+				year: "numeric",
+				hour: "2-digit",
+				minute: "2-digit",
+				second: "2-digit",
+			});
+
 			// Get signature data URL
 			const signatureDataUrl = sigCanvasRef.current?.getTrimmedCanvas().toDataURL("image/png");
 
@@ -143,18 +159,23 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 			
 			pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, undefined, "FAST");
 			
-			// Add signature image below the snapshot
+			// Add signature, captain's name and timestamp below the snapshot
 			if (signatureDataUrl) {
 				const sigWidth = 150;
 				const sigHeight = 50;
 				// Add a bit of margin
-				const startY = pdfHeight + 20 < pdf.internal.pageSize.getHeight() - 100 
+				const startY = pdfHeight + 20 < pdf.internal.pageSize.getHeight() - 140 
 					? pdfHeight + 20 
-					: pdf.internal.pageSize.getHeight() - 100;
+					: pdf.internal.pageSize.getHeight() - 140;
 				
 				pdf.addImage(signatureDataUrl, "PNG", 50, startY, sigWidth, sigHeight);
+				
 				pdf.setFontSize(10);
-				pdf.text("Assinatura do Piloto", 50, startY + sigHeight + 15);
+				pdf.setFont("helvetica", "bold");
+				pdf.text("CÁLCULO CONFIRMADO PELO CAPITÃO", 50, startY + sigHeight + 15);
+				pdf.setFont("helvetica", "normal");
+				pdf.text(`Nome: ${captainName}`, 50, startY + sigHeight + 30);
+				pdf.text(`Data/Hora da Assinatura: ${timestamp}`, 50, startY + sigHeight + 45);
 			}
 
 			const base64 = pdf.output("datauristring");
@@ -379,23 +400,40 @@ export function AircraftBalanceCalculator({ profileId }: AircraftBalanceCalculat
 			<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
 				<DialogContent className="sm:max-w-[500px]">
 					<DialogHeader>
-						<DialogTitle>Assinatura do Piloto</DialogTitle>
+						<DialogTitle>Gerar Relatório de Peso e Balanceamento</DialogTitle>
 					</DialogHeader>
 					<div className="flex flex-col gap-4 py-4">
 						<p className="text-sm text-muted-foreground">
-							Por favor, assine abaixo para confirmar os dados do cálculo de balanceamento.
+							Por favor, insira o nome do capitão e assine abaixo para confirmar os dados do cálculo de balanceamento.
 						</p>
-						<div className="border rounded-md bg-white">
-							<SignatureCanvas
-								ref={sigCanvasRef}
-								penColor="black"
-								canvasProps={{
-									className: "w-full h-40",
-								}}
+						
+						<div className="flex flex-col gap-1.5">
+							<Label htmlFor="captain-name" className="text-sm font-semibold">Nome do Capitão</Label>
+							<Input
+								id="captain-name"
+								type="text"
+								placeholder="Digite o nome completo do capitão"
+								value={captainName}
+								onChange={(e) => setCaptainName(e.target.value)}
+								className="w-full"
 							/>
 						</div>
+
+						<div className="flex flex-col gap-1.5">
+							<Label className="text-sm font-semibold">Assinatura do Capitão</Label>
+							<div className="border rounded-md bg-white overflow-hidden shadow-inner">
+								<SignatureCanvas
+									ref={sigCanvasRef}
+									penColor="black"
+									canvasProps={{
+										className: "w-full h-40",
+									}}
+								/>
+							</div>
+						</div>
+						
 						<div className="flex justify-end">
-							<Button variant="ghost" size="sm" onClick={() => sigCanvasRef.current?.clear()}>
+							<Button variant="ghost" size="sm" onClick={() => sigCanvasRef.current?.clear()} className="h-8 px-2 text-xs text-muted-foreground hover:text-foreground">
 								Limpar Assinatura
 							</Button>
 						</div>
