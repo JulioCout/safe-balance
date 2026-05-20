@@ -4,11 +4,11 @@ packages:
   - tooling/*
 
 catalog:
-  '@ai-sdk/anthropic': ^3.0.77
-  '@ai-sdk/openai': ^3.0.63
-  '@ai-sdk/react': ^3.0.184
-  '@aws-sdk/client-s3': 3.1046.0
-  '@aws-sdk/s3-request-presigner': 3.1046.0
+  '@ai-sdk/anthropic': ^3.0.78
+  '@ai-sdk/openai': ^3.0.64
+  '@ai-sdk/react': ^3.0.187
+  '@aws-sdk/client-s3': 3.1050.0
+  '@aws-sdk/s3-request-presigner': 3.1050.0
   '@hookform/resolvers': 5.2.2
   '@mdx-js/mdx': ^3.1.1
   '@next/third-parties': 16.2.6
@@ -22,19 +22,19 @@ catalog:
   '@prisma/adapter-pg': ^7.8.0
   '@prisma/client': 7.8.0
   '@prisma/nextjs-monorepo-workaround-plugin': ^7.8.0
-  '@shikijs/rehype': ^4.0.2
+  '@shikijs/rehype': ^4.1.0
   '@sindresorhus/slugify': ^3.0.0
   '@tailwindcss/postcss': ^4.3.0
   '@types/js-cookie': ^3.0.4
   '@types/mdx': ^2.0.13
-  '@types/node': 25.8.0
+  '@types/node': 25.9.1
   '@types/nodemailer': ^8.0.0
   '@types/nprogress': ^0.2.3
-  '@types/react': 19.2.14
+  '@types/react': 19.2.15
   '@types/react-dom': 19.2.3
   '@types/uuid': ^11.0.0
   '@vitest/coverage-v8': ^4.1.6
-  ai: ^6.0.182
+  ai: ^6.0.185
   autoprefixer: 10.5.0
   better-auth: 1.6.11
   boring-avatars: ^2.0.4
@@ -42,16 +42,16 @@ catalog:
   clsx: ^2.1.1
   cookie: ^1.1.1
   cropperjs: 1.6.2
-  date-fns: ^4.1.0
+  date-fns: ^4.2.1
   dotenv: ^17.4.2
   dotenv-cli: ^11.0.0
   drizzle-kit: ^0.31.10
   drizzle-orm: ^0.45.2
   drizzle-zod: 0.8.3
   es-toolkit: ^1.46.1
-  hono: ^4.12.18
+  hono: ^4.12.21
   input-otp: ^1.4.2
-  js-cookie: ^3.0.5
+  js-cookie: ^3.0.7
   lucide-react: ^1.16.0
   mdx: ^0.3.1
   mdx-bundler: ^10.1.1
@@ -61,12 +61,12 @@ catalog:
   next-themes: ^0.4.6
   nprogress: ^0.2.0
   nuqs: ^2.8.9
-  openai: ^6.37.0
+  openai: ^6.38.0
   oslo: ^1.2.1
-  oxfmt: ^0.49.0
-  oxlint: ^1.64.0
-  pg: ^8.20.0
-  postcss: 8.5.14
+  oxfmt: ^0.51.0
+  oxlint: ^1.66.0
+  pg: ^8.21.0
+  postcss: 8.5.15
   prettier: 3.8.3
   prisma: 7.8.0
   prisma-zod-generator: 2.1.4
@@ -75,7 +75,7 @@ catalog:
   react-cropper: ^2.3.3
   react-dom: 19.2.6
   react-dropzone: ^15.0.0
-  react-hook-form: ^7.75.0
+  react-hook-form: ^7.76.0
   react-qr-code: ^2.0.21
   recharts: ^3.8.1
   server-only: ^0.0.1
@@ -86,7 +86,7 @@ catalog:
   streamdown: ^2.5.0
   tailwind-merge: ^3.6.0
   tailwindcss: 4.3.0
-  tsx: ^4.22.0
+  tsx: ^4.22.3
   typescript: 6.0.3
   ufo: ^1.6.4
   use-intl: ^4.12.0
