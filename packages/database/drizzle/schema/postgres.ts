@@ -280,6 +280,27 @@ export const userNotificationPreference = pgTable(
 	],
 );
 
+export const aircraftProfile = pgTable(
+	"aircraft_profile",
+	{
+		id: text("id")
+			.$defaultFn(() => cuid())
+			.primaryKey(),
+		userId: text("userId")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		name: text("name").notNull(),
+		model: text("model").notNull(),
+		data: jsonb("data").notNull(),
+		createdAt: timestamp("createdAt").defaultNow().notNull(),
+		updatedAt: timestamp("updatedAt")
+			.defaultNow()
+			.$onUpdate(() => /* @__PURE__ */ new Date())
+			.notNull(),
+	},
+	(table) => [index("aircraft_profile_userId_idx").on(table.userId)],
+);
+
 export const userRelations = relations(user, ({ many }) => ({
 	sessions: many(session),
 	accounts: many(account),
@@ -290,6 +311,7 @@ export const userRelations = relations(user, ({ many }) => ({
 	purchases: many(purchase),
 	notifications: many(notification),
 	notificationPreferences: many(userNotificationPreference),
+	aircraftProfiles: many(aircraftProfile),
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -376,3 +398,10 @@ export const userNotificationPreferenceRelations = relations(
 		}),
 	}),
 );
+
+export const aircraftProfileRelations = relations(aircraftProfile, ({ one }) => ({
+	user: one(user, {
+		fields: [aircraftProfile.userId],
+		references: [user.id],
+	}),
+}));

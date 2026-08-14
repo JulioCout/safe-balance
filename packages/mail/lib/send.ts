@@ -11,6 +11,7 @@ export async function sendEmail<T extends TemplateId>(
 		to: string;
 		from?: string;
 		locale?: Locale;
+		attachments?: { filename: string; content: Buffer | string; contentType?: string }[];
 	} & (
 		| {
 				templateId: T;
@@ -23,7 +24,7 @@ export async function sendEmail<T extends TemplateId>(
 		  }
 	),
 ) {
-	const { to, from, locale = config.defaultLocale as Locale } = params;
+	const { to, from, locale = config.defaultLocale as Locale, attachments } = params;
 
 	let html: string;
 	let text: string;
@@ -52,6 +53,7 @@ export async function sendEmail<T extends TemplateId>(
 			subject,
 			text,
 			html,
+			attachments,
 		});
 		return true;
 	} catch (e) {

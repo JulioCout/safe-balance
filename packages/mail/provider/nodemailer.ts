@@ -12,6 +12,7 @@ export const send: SendEmailHandler = async ({
 	replyTo,
 	text,
 	html,
+	attachments,
 }) => {
 	const transporter = nodemailer.createTransport({
 		host: process.env.MAIL_HOST as string,
@@ -31,5 +32,6 @@ export const send: SendEmailHandler = async ({
 		subject,
 		text,
 		html,
+		attachments,
 	});
 };

@@ -1,9 +1,19 @@
-import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import {
+	GetObjectCommand,
+	ListObjectsV2Command,
+	PutObjectCommand,
+	S3Client,
+} from "@aws-sdk/client-s3";
 import { getSignedUrl as getS3SignedUrl } from "@aws-sdk/s3-request-presigner";
 import { logger } from "@repo/logs";
 
 import { config } from "../../config";
-import type { GetSignedUploadUrlHandler, GetSignedUrlHander } from "../../types";
+import type {
+	GetSignedUploadUrlHandler,
+	GetSignedUrlHander,
+	ListFilesHandler,
+	UploadFileHandler,
+} from "../../types";
 
 let s3Client: S3Client | null = null;
 
@@ -74,11 +84,61 @@ export const getSignedUrl: GetSignedUrlHander = async (path, { bucket, expiresIn
 
 	const s3Client = getS3Client();
 	try {
-		return getS3SignedUrl(s3Client, new GetObjectCommand({ Bucket: bucketName, Key: path }), {
+		return await getS3SignedUrl(s3Client, new GetObjectCommand({ Bucket: bucketName, Key: path }), {
 			expiresIn,
 		});
 	} catch (e) {
 		logger.error(e);
 		throw new Error("Could not get signed url");
+	}
+};
+
+export const uploadFile: UploadFileHandler = async (path, file, { bucket, contentType }) => {
+	const bucketName = config.bucketNames[bucket as keyof typeof config.bucketNames];
+
+	if (!bucketName) {
+		throw new Error("Invalid bucket");
+	}
+
+	const s3Client = getS3Client();
+	try {
+		await s3Client.send(
+			new PutObjectCommand({
+				Bucket: bucketName,
+				Key: path,
+				Body: file,
+				ContentType: contentType,
+			}),
+		);
+	} catch (e) {
+		logger.error(e);
+		throw new Error("Could not upload file");
+	}
+};
+
+export const listFiles: ListFilesHandler = async (prefix, { bucket }) => {
+	const bucketName = config.bucketNames[bucket as keyof typeof config.bucketNames];
+
+	if (!bucketName) {
+		throw new Error("Invalid bucket");
+	}
+
+	const s3Client = getS3Client();
+	try {
+		const response = await s3Client.send(
+			new ListObjectsV2Command({
+				Bucket: bucketName,
+				Prefix: prefix,
+			}),
+		);
+
+		return (response.Contents ?? []).map((item) => ({
+			key: item.Key ?? "",
+			lastModified: item.LastModified,
+			size: item.Size,
+		}));
+	} catch (e) {
+		logger.error(e);
+		throw new Error("Could not list files");
 	}
 };

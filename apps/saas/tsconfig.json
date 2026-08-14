@@ -4,6 +4,7 @@
 		"plugins": [{ "name": "next" }],
 		"paths": {
 			"@config": ["./config"],
+			"@aircraft-profiles/*": ["./modules/aircraft-profiles/*"],
 			"@organizations/*": ["./modules/organizations/*"],
 			"@auth/*": ["./modules/auth/*"],
 			"@settings/*": ["./modules/settings/*"],

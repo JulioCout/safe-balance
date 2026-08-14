@@ -14,6 +14,7 @@ export const send: SendEmailHandler = async ({
 	replyTo,
 	html,
 	text,
+	attachments,
 }) => {
 	await resend.emails.send({
 		from: from ?? config.mailFrom,
@@ -24,5 +25,6 @@ export const send: SendEmailHandler = async ({
 		subject,
 		html,
 		text,
+		attachments,
 	});
 };
