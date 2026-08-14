@@ -1,0 +1,32 @@
+{
+	"common": {
+		"openLinkInBrowser": "Se deseja abrir o link em um navegador diferente do padrão, copie e cole este link:",
+		"useLink": "ou use o seguinte link:"
+	},
+	"emailVerification": {
+		"body": "Olá,\npor favor clique no link abaixo para verificar este novo endereço de e-mail.",
+		"confirmEmail": "Verificar e-mail",
+		"subject": "Verifique seu e-mail"
+	},
+	"forgotPassword": {
+		"body": "Olá,\nvocê solicitou uma redefinição de senha.\n\nClique no botão abaixo para redefinir sua senha.",
+		"resetPassword": "Redefinir senha",
+		"subject": "Redefina sua senha"
+	},
+	"magicLink": {
+		"body": "Olá,\nvocê solicitou um e-mail de login do supastarter.\n\nClique no link abaixo para entrar.",
+		"login": "Entrar",
+		"subject": "Entrar no supastarter"
+	},
+	"organizationInvitation": {
+		"body": "Você foi convidado para participar da organização {organizationName}. Clique no botão abaixo ou copie e cole o link no navegador de sua preferência para aceitar o convite e entrar na organização.",
+		"headline": "Participar da organização {organizationName}",
+		"join": "Participar da organização",
+		"subject": "Você foi convidado para participar de uma organização"
+	},
+	"notification": {
+		"openInApp": "Abrir esta notificação no aplicativo:",
+		"subject": "Nova notificação",
+		"view": "Visualizar"
+	}
+}

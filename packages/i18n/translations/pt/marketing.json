@@ -1,0 +1,154 @@
+{
+	"blog": {
+		"description": "Leia as últimas notícias da nossa empresa",
+		"title": "Meu blog incrível",
+		"back": "Voltar ao blog"
+	},
+	"changelog": {
+		"description": "Fique atualizado com as últimas alterações no nosso produto.",
+		"title": "Changelog"
+	},
+	"contact": {
+		"description": "Estamos aqui para ajudar. Por favor, use o formulário abaixo para entrar em contato conosco.",
+		"form": {
+			"email": "E-mail",
+			"message": "Mensagem",
+			"name": "Nome",
+			"notifications": {
+				"error": "Lamentamos, mas não foi possível enviar sua mensagem. Por favor, tente novamente mais tarde.",
+				"success": "Sua mensagem foi enviada com sucesso. Entraremos em contato o mais breve possível."
+			},
+			"submit": "Enviar mensagem"
+		},
+		"title": "Contate-nos"
+	},
+	"documentation": {
+		"title": "Documentação"
+	},
+	"faq": {
+		"description": "Tem alguma dúvida? Nós te ajudamos.",
+		"title": "Perguntas frequentes",
+		"items": {
+			"refundPolicy": {
+				"question": "Qual é a política de reembolso?",
+				"answer": "Oferecemos uma garantia de reembolso de 30 dias se você não estiver satisfeito com o nosso produto."
+			},
+			"cancelSubscription": {
+				"question": "Como cancelo minha assinatura?",
+				"answer": "Você pode cancelar sua assinatura visitando a página de faturamento."
+			},
+			"changePlan": {
+				"question": "Posso alterar meu plano?",
+				"answer": "Sim, você pode alterar seu plano a qualquer momento visitando a página de faturamento."
+			},
+			"freeTrial": {
+				"question": "Vocês oferecem um teste gratuito?",
+				"answer": "Sim, oferecemos um teste gratuito de 14 dias."
+			}
+		}
+	},
+	"home": {
+		"hero": {
+			"new": "Novo:",
+			"featureBadge": "Recurso incrível do seu SaaS",
+			"title": "Seu SaaS revolucionário construído com Next.js",
+			"subtitle": "Esta é uma aplicação de demonstração construída com supastarter. Ela economizará muito tempo e esforço na construção do seu próximo SaaS.",
+			"getStarted": "Começar",
+			"documentation": "Documentação",
+			"imageAlt": "Nossa aplicação",
+			"builtWith": "Construído e lançado com estas ferramentas incríveis"
+		},
+		"features": {
+			"badge": "Recursos incríveis",
+			"title": "Recursos que seus clientes vão adorar",
+			"description": "Nesta seção você pode apresentar todos os recursos que seu SaaS oferece e como eles podem beneficiar seus clientes.",
+			"feature1": {
+				"title": "Recurso 1",
+				"subtitle": "Faça mais com o nosso SaaS incrível.",
+				"description": "Este é um recurso brilhante. E abaixo você pode ver alguns motivos. Isto é basicamente apenas um texto fictício.",
+				"benefit1": {
+					"title": "Benefício 1",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Isto é basicamente apenas um texto fictício."
+				},
+				"benefit2": {
+					"title": "Benefício 2",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Isto é basicamente apenas um texto fictício."
+				},
+				"benefit3": {
+					"title": "Benefício 3",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Isto é basicamente apenas um texto fictício."
+				}
+			},
+			"feature2": {
+				"title": "Recurso 2",
+				"subtitle": "Seu SaaS também pode fazer isto.",
+				"description": "Outro texto fictício para outro recurso.",
+				"benefit1": {
+					"title": "Benefício 1",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Isto é basicamente apenas um texto fictício."
+				},
+				"benefit2": {
+					"title": "Benefício 2",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Isto é basicamente apenas um texto fictício."
+				},
+				"benefit3": {
+					"title": "Benefício 3",
+					"description": "Este é um benefício incrível. E abaixo você pode ver alguns motivos. Isto é basicamente apenas um texto fictício."
+				}
+			}
+		}
+	},
+	"newsletter": {
+		"email": "E-mail",
+		"hints": {
+			"error": {
+				"message": "Não foi possível assinar a newsletter. Por favor, tente novamente mais tarde."
+			},
+			"success": {
+				"message": "Obrigado por assinar nossa newsletter. Manteremos você informado.",
+				"title": "Inscrito"
+			}
+		},
+		"submit": "Inscrever-se",
+		"subtitle": "Seja um dos primeiros a ter acesso ao supastarter.nextjs.",
+		"title": "Obter acesso antecipado"
+	},
+	"notFound": {
+		"code": "404",
+		"title": "Página não encontrada",
+		"goToDashboard": "Ir para o painel",
+		"goToHomepage": "Ir para a página inicial"
+	},
+	"common": {
+		"footer": {
+			"blog": "Blog",
+			"features": "Recursos",
+			"pricing": "Preços",
+			"privacyPolicy": "Política de privacidade",
+			"termsAndConditions": "Termos e condições",
+			"builtWith": "Construído com supastarter"
+		},
+		"menu": {
+			"blog": "Blog",
+			"changelog": "Changelog",
+			"contact": "Contato",
+			"dashboard": "Painel",
+			"docs": "Docs",
+			"faq": "FAQ",
+			"login": "Entrar",
+			"pricing": "Preços"
+		},
+		"aria": {
+			"menu": "Menu",
+			"language": "Idioma"
+		},
+		"tableOfContents": {
+			"title": "Nesta página"
+		},
+		"colorMode": {
+			"system": "Sistema",
+			"light": "Claro",
+			"dark": "Escuro"
+		}
+	}
+}

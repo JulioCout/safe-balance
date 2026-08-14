@@ -18,9 +18,13 @@ export const config = {
 			label: "Français",
 			currency: "USD",
 		},
+		pt: {
+			label: "Português",
+			currency: "BRL",
+		},
 	},
-	defaultLocale: "en",
-	defaultCurrency: "USD",
+	defaultLocale: "pt",
+	defaultCurrency: "BRL",
 	localeCookieName: "NEXT_LOCALE",
 } as const satisfies I18nConfig;
 
